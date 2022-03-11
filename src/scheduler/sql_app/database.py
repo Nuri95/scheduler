@@ -3,10 +3,10 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app.db"
-# basedir = os.path.abspath(os.path.dirname(__file__))
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
+    'sqlite:///' + os.path.join(basedir, 'sql_app.db'),
     connect_args={"check_same_thread": False}
 )
 
@@ -17,7 +17,7 @@ SessionLocal = sessionmaker(
 )
 
 
-def get_session():
+def get_session() -> SessionLocal:
     db = SessionLocal()
     try:
         yield db
