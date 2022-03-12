@@ -139,4 +139,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-.idea
+/.idea/dataSources.xml
+/.idea/vcs.xml
+
+poetry.lock
